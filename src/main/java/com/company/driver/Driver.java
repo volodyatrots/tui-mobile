@@ -15,12 +15,7 @@ import java.time.Duration;
 public class Driver {
     private static final GlobalParams params = new GlobalParams();
     private static AppiumDriver appiumDriver;
-
-    private Driver() {
-    }
-
-
-    private static void createDriver() {
+    private static final ThreadLocal<AppiumDriver> threadLocalScope = ThreadLocal.withInitial(() -> {
         try {
             BaseOptions options = new BaseOptions()
                     .setPlatformName(params.getPlatformName())
@@ -35,6 +30,10 @@ public class Driver {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
+        return appiumDriver;
+    });
+
+    private Driver() {
     }
 
     public static void close() {
@@ -45,13 +44,14 @@ public class Driver {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
+        threadLocalScope.remove();
     }
 
     public static WebDriver getAppiumDriver() {
         if (appiumDriver == null) {
-            createDriver();
+            threadLocalScope.get();
         }
-        return appiumDriver;
+        return threadLocalScope.get();
     }
 
 
