@@ -1,4 +1,4 @@
-package com.company.util;
+package com.company.model;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

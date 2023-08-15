@@ -1,6 +1,6 @@
 package com.company.spring;
 
-import com.company.util.AndroidProperties;
+import com.company.model.AndroidProperties;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;

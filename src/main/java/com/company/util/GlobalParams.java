@@ -1,5 +1,6 @@
 package com.company.util;
 
+import com.company.model.AndroidProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class GlobalParams {
