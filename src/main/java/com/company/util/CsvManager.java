@@ -32,7 +32,7 @@ public final class CsvManager {
 
     @SneakyThrows(IOException.class)
     public static <T> List<T> getCsvDataAsList(String csvFilePath, Class<T> classType) {
-        try (FileReader file = new FileReader(csvFilePath)) {
+        try (FileReader file = new FileReader(getResource(csvFilePath))) {
             return new CsvToBeanBuilder<T>(file)
                     .withType(classType)
                     .build()

@@ -5,15 +5,9 @@ import lombok.Data;
 
 @Data
 public class User {
-    @CsvBindByName(column = "userName")
+    @CsvBindByName(column = "name")
     private String userName;
-    @CsvBindByName(column = "email")
-    private String userEmail;
     @CsvBindByName(column = "password")
     private String password;
-    @CsvBindByName(column = "firstName")
-    private String firstName;
-    @CsvBindByName(column = "lastName")
-    private String lastName;
 
 }
