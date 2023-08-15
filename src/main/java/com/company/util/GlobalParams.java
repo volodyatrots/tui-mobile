@@ -1,5 +1,7 @@
 package com.company.util;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class GlobalParams {
 
     private static final ThreadLocal<String> platformName = new ThreadLocal<>();
@@ -12,6 +14,8 @@ public class GlobalParams {
     };
     private static final ThreadLocal<String> appLocation = new ThreadLocal<>() {
     };
+    @Autowired
+    AndroidProperties androidProperties;
 
     public String getPlatformName() {
         return platformName.get();
@@ -26,7 +30,7 @@ public class GlobalParams {
     }
 
     public void setAutomationName(String automationNameNew) {
-        automationName.set(automationNameNew);
+        automationName.set(automationNameNew == null ? androidProperties.getDefaultAndroidAutomationName() : automationNameNew);
     }
 
     public String getDeviceName() {
@@ -42,7 +46,7 @@ public class GlobalParams {
     }
 
     public void setAppPackage(String appPackageNew) {
-        appPackage.set(appPackageNew);
+        appPackage.set(appPackageNew == null ? androidProperties.getAppPackage() : appPackageNew);
     }
 
     public String getAppActivity() {
@@ -50,7 +54,7 @@ public class GlobalParams {
     }
 
     public void setAppActivity(String appActivityNew) {
-        appActivity.set(appActivityNew);
+        appActivity.set(appActivityNew == null ? androidProperties.getAppActivity() : appActivityNew);
     }
 
     public String getAppiumURL() {
@@ -58,7 +62,7 @@ public class GlobalParams {
     }
 
     public void setAppiumURL(String appiumURLNew) {
-        appiumURL.set(appiumURLNew);
+        appiumURL.set(appiumURLNew == null ? androidProperties.getAppiumURL() : appiumURLNew);
     }
 
     public String getAppLocation() {
@@ -66,7 +70,7 @@ public class GlobalParams {
     }
 
     public void setAppLocation(String appLocationNew) {
-        appLocation.set(appLocationNew);
+        appLocation.set(appLocationNew == null ? androidProperties.getAppLocation() : appLocationNew);
     }
 
 

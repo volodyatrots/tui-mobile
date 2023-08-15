@@ -5,7 +5,8 @@ import com.company.util.GlobalParams;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 @CucumberOptions(
@@ -15,13 +16,13 @@ import org.testng.annotations.Parameters;
                 "html:target/cucumber-reports/pixel/report.html"},
         monochrome = true
 )
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class AndroidTestRunner extends AbstractTestNGCucumberTests {
 
     private final GlobalParams globalParams = new GlobalParams();
 
     @Parameters({"platformName", "automationName", "appiumURL", "appPackage", "appActivity", "appLocation"})
-    @BeforeClass(alwaysRun = true)
-    public void setParams(String platformName, String automationName, String appiumURL, String appPackage, String appActivity, String appLocation) {
+    @BeforeTest(alwaysRun = true)
+    public void setParams(@Optional("Android") String platformName, @Optional String automationName, @Optional String appiumURL, @Optional String appPackage, @Optional String appActivity, @Optional String appLocation) {
         globalParams.setPlatformName(platformName);
         globalParams.setAutomationName(automationName);
         globalParams.setAppLocation(appLocation);
