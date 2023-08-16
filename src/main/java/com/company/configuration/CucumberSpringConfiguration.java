@@ -1,4 +1,4 @@
-package com.company.spring;
+package com.company.configuration;
 
 import com.company.model.AndroidProperties;
 import io.cucumber.spring.CucumberContextConfiguration;

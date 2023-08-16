@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "android")
 public class AndroidProperties {
 
-    private String appiumURL;
+    private String defaultAppiumURL;
     private String defaultAndroidAutomationName;
-    private String appPackage;
-    private String appActivity;
-    private String appLocation;
+    private String defaultAppPackage;
+    private String defaultAppActivity;
+    private String defaultAppLocation;
 
 }

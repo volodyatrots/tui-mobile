@@ -20,21 +20,21 @@ public class LoginBO {
     LoginPage loginPage;
 
 
-    @When("I login")
-    public void login() {
+    @When("user enters correct username and password values")
+    public void loginWithValidCredentials() {
         loginPage.clickSignIn();
     }
 
 
-    @When("I login with invalid credentials")
-    public void iLoginWithInvalidCredentials() {
+    @When("user enters incorrect username and password values")
+    public void loginWithInvalidCredentials() {
         int firstRecord = 0;
         List<User> csvDataAsList = CsvManager.getCsvDataAsList("users.csv", User.class);
         loginPage.loginWithCredentials(csvDataAsList.get(firstRecord).getUserName(), csvDataAsList.get(firstRecord).getPassword());
     }
 
-    @Then("error message should appear")
-    public void errorMessageShouldAppear() {
+    @Then("user gets login error message")
+    public void loginErrorMessageShouldAppear() {
         Map<String, String> errors = CsvManager.getCsvDataAsList("errorMessages.csv", ErrorMessages.class).stream().collect(
                 Collectors.toMap(ErrorMessages::getError, ErrorMessages::getMessage));
         Assert.assertEquals(loginPage.getMessage(), errors.get("login_error"));

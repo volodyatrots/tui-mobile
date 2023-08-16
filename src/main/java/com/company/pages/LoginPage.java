@@ -17,8 +17,6 @@ public class LoginPage extends BasePage {
     private WebElement username;
     @AndroidFindBy(accessibility = "password")
     private WebElement password;
-    @AndroidFindBy(id = "android:id/message")
-    private WebElement message;
 
 
     public void clickSignIn() {
@@ -29,10 +27,6 @@ public class LoginPage extends BasePage {
         username.sendKeys(name);
         password.sendKeys(pass);
         clickSignIn();
-    }
-
-    public String getMessage() {
-        return message.getText();
     }
 
 

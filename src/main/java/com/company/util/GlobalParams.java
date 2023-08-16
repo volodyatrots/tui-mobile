@@ -47,7 +47,7 @@ public class GlobalParams {
     }
 
     public void setAppPackage(String appPackageNew) {
-        appPackage.set(appPackageNew == null ? androidProperties.getAppPackage() : appPackageNew);
+        appPackage.set(appPackageNew == null ? androidProperties.getDefaultAppPackage() : appPackageNew);
     }
 
     public String getAppActivity() {
@@ -55,7 +55,7 @@ public class GlobalParams {
     }
 
     public void setAppActivity(String appActivityNew) {
-        appActivity.set(appActivityNew == null ? androidProperties.getAppActivity() : appActivityNew);
+        appActivity.set(appActivityNew == null ? androidProperties.getDefaultAppActivity() : appActivityNew);
     }
 
     public String getAppiumURL() {
@@ -63,7 +63,7 @@ public class GlobalParams {
     }
 
     public void setAppiumURL(String appiumURLNew) {
-        appiumURL.set(appiumURLNew == null ? androidProperties.getAppiumURL() : appiumURLNew);
+        appiumURL.set(appiumURLNew == null ? androidProperties.getDefaultAppiumURL() : appiumURLNew);
     }
 
     public String getAppLocation() {
@@ -71,7 +71,7 @@ public class GlobalParams {
     }
 
     public void setAppLocation(String appLocationNew) {
-        appLocation.set(appLocationNew == null ? androidProperties.getAppLocation() : appLocationNew);
+        appLocation.set(appLocationNew == null ? androidProperties.getDefaultAppLocation() : appLocationNew);
     }
 
 

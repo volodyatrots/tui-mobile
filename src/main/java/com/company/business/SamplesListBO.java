@@ -11,9 +11,9 @@ public class SamplesListBO {
     @Autowired
     SamplesListPage samplesListPage;
 
-    @Then("samples list should appear")
+    @Then("user gets directed to samples list page")
     public void samplesListShouldBeDisplayed() {
-        Assert.assertTrue(samplesListPage.isMenuDisplayed(), "List is missing");
+        Assert.assertTrue(samplesListPage.isMenuDisplayed(), "List page is missing");
     }
 
 }
