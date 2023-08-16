@@ -10,7 +10,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 @CucumberOptions(
-        glue = {"com.company.business", "com.company.spring"},
+        glue = {"com.company.business", "com.company.configuration"},
         plugin = {"pretty", "json:target/cucumber-reports/pixel/Cucumber.json",
                 "junit:target/cucumber-reports/pixel/Cucumber.xml",
                 "html:target/cucumber-reports/pixel/report.html"},

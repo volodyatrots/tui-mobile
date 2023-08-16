@@ -5,6 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@ComponentScan(basePackages = {"com.company.business", "com.company.pages", "com.company.util", "com.company.spring", "com.company"})
+@ComponentScan(basePackages = {"com.company.business", "com.company.pages", "com.company.util", "com.company.configuration", "com.company"})
 public class UiSpringConfig {
 }
