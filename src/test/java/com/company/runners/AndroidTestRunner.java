@@ -1,6 +1,8 @@
 package com.company.runners;
 
-import com.company.driver.Driver;
+
+import com.company.driver.DriverManager;
+import com.company.driver.DriverManagerFactory;
 import com.company.util.GlobalParams;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -22,19 +24,20 @@ public class AndroidTestRunner extends AbstractTestNGCucumberTests {
 
     @Parameters({"platformName", "automationName", "appiumURL", "appPackage", "appActivity", "appLocation"})
     @BeforeTest(alwaysRun = true)
-    public void setParams(@Optional("Android") String platformName, @Optional String automationName, @Optional String appiumURL, @Optional String appPackage, @Optional String appActivity, @Optional String appLocation) {
+    public void init(@Optional("Android") String platformName, @Optional String automationName, @Optional String appiumURL, @Optional String appPackage, @Optional String appActivity, @Optional String appLocation) {
         globalParams.setPlatformName(platformName);
         globalParams.setAutomationName(automationName);
         globalParams.setAppLocation(appLocation);
         globalParams.setAppPackage(appPackage);
         globalParams.setAppActivity(appActivity);
         globalParams.setAppiumURL(appiumURL);
+        DriverManagerFactory.getManager(platformName).createDriver();
     }
 
 
     @AfterClass
     public void tearDown() {
-        Driver.close();
+        DriverManager.close();
     }
 
 }

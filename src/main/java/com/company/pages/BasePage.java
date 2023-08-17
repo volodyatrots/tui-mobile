@@ -1,7 +1,7 @@
 package com.company.pages;
 
 
-import com.company.driver.Driver;
+import com.company.driver.DriverManager;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
@@ -12,7 +12,7 @@ public abstract class BasePage {
     private WebElement message;
 
     BasePage() {
-        PageFactory.initElements(new AppiumFieldDecorator(Driver.getAppiumDriver()), this);
+        PageFactory.initElements(new AppiumFieldDecorator(DriverManager.getDriver()), this);
     }
 
     public String getMessage() {
